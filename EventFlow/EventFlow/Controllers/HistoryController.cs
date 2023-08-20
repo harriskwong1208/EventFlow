@@ -31,7 +31,18 @@ namespace EventFlow.Controllers
                     UserId = History.UserId
                 });
             }
-
+            for (int j = 0; j < HistoryDto.Count; j++)
+            {
+                for (int i = 0; i < HistoryDto.Count-1; i++)
+                {
+                    if (DateTime.Compare(HistoryDto[i].Date, HistoryDto[i + 1].Date) > 0)
+                    {
+                        var temp = HistoryDto[i];
+                        HistoryDto[i] = HistoryDto[i + 1];
+                        HistoryDto[i + 1] = temp;
+                    }
+                }
+            }
             return View(HistoryDto);
 
         }

@@ -34,7 +34,18 @@ namespace EventFlow.Controllers
                     UserId = Upcoming.UserId
                 });
             }
-            
+            for (int j = 0; j < UpcomingDto.Count; j++)
+            {
+                for (int i = 0; i < UpcomingDto.Count - 1; i++)
+                {
+                    if (DateTime.Compare(UpcomingDto[i].Date, UpcomingDto[i + 1].Date) > 0)
+                    {
+                        var temp = UpcomingDto[i];
+                        UpcomingDto[i] = UpcomingDto[i + 1];
+                        UpcomingDto[i + 1] = temp;
+                    }
+                }
+            }
             return View(UpcomingDto);
         
         }
