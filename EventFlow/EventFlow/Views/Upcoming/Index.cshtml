@@ -1,0 +1,10 @@
+﻿@using EventFlow.Models.DTO;
+
+@model List<UpcomingDTO>
+
+
+@foreach(var item in Model){
+	<p><h1>Id: @item.Id, Title: @item.Title, Date: @item.Date,
+	 Priority: @item.Priority, Type: @item.Type, UserId: @item.UserId</h1>
+	 </p>
+}
