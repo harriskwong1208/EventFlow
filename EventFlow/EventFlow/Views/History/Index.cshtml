@@ -1,0 +1,41 @@
+﻿@using EventFlow.Models.DTO;
+
+@model List<HistoryDTO>
+
+
+<body class="bg-light">
+    <main role="main" class="container">
+
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <h6 class="border-bottom border-gray pb-2 mb-0">Upcoming events/appointments/assignments</h6>
+            @foreach (var item in Model)
+            {
+
+                <div class="d-flex">
+                    <div class="mr-auto p-2">
+                        <strong class="d-block text-gray-dark">@item.Title</strong>
+                    </div>
+                    <div class=" p-2">
+                        <button type="button" class="btn btn-primary">Primary</button>
+                    </div>
+                    <div class="p-2">
+                        <button type="button" class="btn btn-danger">Danger</button>
+                    </div>
+                </div>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                </p>
+
+            }
+
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/vendor/holder.min.js"></script>
+        <script src="offcanvas.js"></script>
+    </main>
+</body>

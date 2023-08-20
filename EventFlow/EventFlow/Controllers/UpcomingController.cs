@@ -37,7 +37,6 @@ namespace EventFlow.Controllers
             
             return View(UpcomingDto);
         
-            //return View(ObjUpcomingList);
         }
     }
 }

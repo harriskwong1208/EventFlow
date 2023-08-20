@@ -9,7 +9,7 @@ namespace EventFlow.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Completion { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         [ForeignKey("User")]
         public int UserId { get; set; }
         public User User { get; set; }
