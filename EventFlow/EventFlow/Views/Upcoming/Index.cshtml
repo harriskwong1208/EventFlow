@@ -1,24 +1,46 @@
 ﻿@using EventFlow.Models.DTO;
 
 @model List<UpcomingDTO>
+<head>
 
 
+    <style>
+        #Add-btn{
+            height:30px;
+            font-size:smaller;
+            margin:0px;
+            padding:0px;
+            padding-left:2px;
+            padding-right:2px;
+        }
+        .Items{
+            display:flex;
+            justify-content:space-between;
+            margin-top:1%;
+        }
+        
+    </style>
+</head>
 <body class="bg-light">
 <main role="main" class="container">
 
     <div class="my-3 p-3 bg-white rounded box-shadow">
-        <h6 class="border-bottom border-gray pb-2 mb-0">Upcoming events/appointments/assignments</h6>
+            <div class="d-flex justify-content-between">
+            <div>
+                <h6 class="border-bottom border-gray pb-2 mb-0">Upcoming events/appointments/assignments</h6>
+            </div>
+            <div>
+                <button id="Add-btn" type="button" class="btn btn-info btn-xs">Add new item</button>
+            </div>
+        </div>
         @foreach(var item in Model){
   
-                <div class="d-flex">
-                    <div class="mr-auto p-2">
-                        <strong class="d-block text-gray-dark">@item.Title</strong>
-                    </div>
-                    <div class=" p-2">
-                         <button type="button" class="btn btn-primary">Primary</button>
-                    </div>
-                    <div class="p-2">
-                         <button type="button" class="btn btn-danger">Danger</button>
+                <div class="Items">
+                    <strong id="Title" class="d-block text-gray-dark p-2">@item.Title</strong>
+                   
+                    <div>
+                        <button id="Edit-btn" type="button" class="btn btn-primary btn-sm p-2">Edit</button>                    
+                        <button id="Delete-btn" type="button" class="btn btn-danger btn-sm p-2">Delete</button>
                     </div>
                 </div>
             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
