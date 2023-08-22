@@ -31,6 +31,7 @@ namespace EventFlow.Controllers
                     Priority = Upcoming.Priority,
                     Date = Upcoming.Date,
                     Type = Upcoming.Type,
+                    Description = Upcoming.Description,
                     UserId = Upcoming.UserId
                 });
             }
@@ -49,5 +50,36 @@ namespace EventFlow.Controllers
             return View(UpcomingDto);
         
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        
+        [HttpPost]
+        public async Task<IActionResult> Create(UpcomingRequest upcomingRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                var upcomingModel = new Upcoming
+                {
+                    Title = upcomingRequest.Title,
+                    Date = upcomingRequest.Date,
+                    Priority = upcomingRequest.Priority,
+                    Type = upcomingRequest.Type,
+                    Description = upcomingRequest.Description,
+                    UserId = 1
+                };
+                _context.Upcomings.Add(upcomingModel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }   
+
+            return View(upcomingRequest);
+        }
+        
+
+   
     }
 }

@@ -11,6 +11,7 @@ namespace EventFlow.Models
         public DateTime Date { get; set; }
         public string Priority { get; set; }
         public string Type { get; set; }
+        public string Description { get; set; }
         [ForeignKey("User")]
         public int UserId { get; set; }
         public User User { get; set; }
