@@ -78,8 +78,29 @@ namespace EventFlow.Controllers
 
             return View(upcomingRequest);
         }
-        
 
-   
+        [HttpGet]
+        public async Task<ActionResult> Detail(int id)
+        {
+            var upcoming = await _context.Upcomings.FirstOrDefaultAsync(c => c.Id == id);
+            if (upcoming == null)
+            {
+                return NotFound();
+            }
+
+
+            return View(upcoming);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            
+            var upcoming = await _context.Upcomings.FindAsync(id);
+            
+        
+  
+            return View(upcoming);
+        }
+
     }
 }

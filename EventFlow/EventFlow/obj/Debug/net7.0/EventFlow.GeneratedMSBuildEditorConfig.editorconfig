@@ -44,6 +44,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBjb21pbmdcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/harri/Desktop/EventFlow/EventFlow/EventFlow/Views/Upcoming/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBjb21pbmdcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/harri/Desktop/EventFlow/EventFlow/EventFlow/Views/Upcoming/Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBjb21pbmdcRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/harri/Desktop/EventFlow/EventFlow/EventFlow/Views/Upcoming/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBjb21pbmdcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

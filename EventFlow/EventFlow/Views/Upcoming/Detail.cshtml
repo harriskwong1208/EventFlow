@@ -1,6 +1,7 @@
 ﻿@using EventFlow.Models.DTO;
 
-@model List<UpcomingDTO>
+@model Upcoming
+
 <head>
 
 
@@ -36,27 +37,25 @@
                  </a>
             </div>
         </div>
-        @foreach(var item in Model){
+     
   
                 <div class="Items">
-                    <strong id="Title" class="d-block text-gray-dark p-2">@item.Title</strong>
+                    <strong id="Title" class="d-block text-gray-dark p-2">@Model.Title</strong>
                    
                     <div>
-                        <button id="Edit-btn" type="button" class="btn btn-primary btn-sm p-2">Edit</button>
-                        <a asp-controller="Upcoming" asp-action="Delete" asp-route-id="@item.Id" >
-                            <button id="Delete-btn" type="button" class="btn btn-danger btn-sm p-2">Delete</button>
-                        </a>
+                        <button id="Edit-btn" type="button" class="btn btn-primary btn-sm p-2">Edit</button>                    
+                        <button id="Delete-btn" type="button" class="btn btn-danger btn-sm p-2">Delete</button>
                     </div>
             </div>
             <div class="d-flex justify-content-between pb-0 mb-0 mt-1" >
-                <p style="margin-left:1%">@item.Date</p>
-                <p style="margin-right:1%">Priority: @item.Priority</p>
+                <p style="margin-left:1%">@Model.Date</p>
+                <p style="margin-right:1%">Priority: @Model.Priority</p>
             </div>
             <p class="media-body pb-2 mb-0 small lh-125 border-bottom border-gray" >
-               @item.Description
+               @Model.Description
             </p>
        
-        }
+        
 
     </div>
 
