@@ -97,9 +97,28 @@ namespace EventFlow.Controllers
             
             var upcoming = await _context.Upcomings.FindAsync(id);
             
-        
-  
+            if(upcoming == null)
+            {
+                return View("Error");
+            }
             return View(upcoming);
+        }
+        [HttpPost,ActionName("Delete")]
+        public async Task<IActionResult> DeleteItem(int id)
+        {
+            
+            var upcoming = await _context.Upcomings.FindAsync(id);
+
+            if(upcoming == null)
+            {
+                return View("Error");
+            }
+
+            _context.Remove(upcoming);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+            
+        
         }
 
     }
