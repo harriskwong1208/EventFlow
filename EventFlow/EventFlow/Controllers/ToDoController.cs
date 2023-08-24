@@ -37,6 +37,15 @@ namespace EventFlow.Controllers
             return View(ToDoDto);
 
         }
+        public async Task<IActionResult> Detail(int id)
+        {
+            var todo = await _context.ToDos.FirstOrDefaultAsync(c => c.Id == id);
+            if(todo == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(todo);
+        }
     }
 }
 

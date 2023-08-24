@@ -1,0 +1,64 @@
+﻿@using EventFlow.Models.DTO;
+
+@model ToDo
+
+<head>
+
+
+    <style>
+        #Add-btn {
+            height: 30px;
+            font-size: smaller;
+            margin: 0px;
+            padding: 0px;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .Items {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1%;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <main role="main" class="container">
+
+        <div class="my-3 p-3 bg-white rounded box-shadow">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h6 class="border-bottom border-gray pb-2 mb-0">@Model.Title</h6>
+                </div>
+                <div>
+                    <a asp-controller="ToDo" asp-action="Index">
+                        <button id="Add-btn" type="button" class="btn btn-info btn-xs me-1">Back</button>
+
+                    </a>
+                    <button id="Edit-btn" type="button" class="btn btn-primary btn-sm p-1 ">Edit</button>
+
+                </div>
+            </div>
+
+
+   
+            <div class="d-flex justify-content-between pb-0 mb-0 mt-1">
+                <p ">@Model.Type</p>
+            </div>
+            <p class="media-body pb-2 mb-0 small lh-125 border-bottom border-gray">
+                @Model.Description
+            </p>
+
+
+
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../dist/js/bootstrap.min.js"></script>
+        <script src="../../assets/js/vendor/holder.min.js"></script>
+        <script src="offcanvas.js"></script>
+    </main>
+</body>

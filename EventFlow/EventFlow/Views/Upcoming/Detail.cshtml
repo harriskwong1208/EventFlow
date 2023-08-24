@@ -28,7 +28,7 @@
     <div class="my-3 p-3 bg-white rounded box-shadow">
             <div class="d-flex justify-content-between">
             <div>
-                <h6 class="border-bottom border-gray pb-2 mb-0">Upcoming events/appointments/assignments</h6>
+                <h6 class="border-bottom border-gray pb-2 mb-0">@Model.Title</h6>
             </div>
             <div>
                 <a asp-controller="Upcoming" asp-action="Index" >
@@ -40,7 +40,6 @@
      
   
                 <div class="Items">
-                    <strong id="Title" class="d-block text-gray-dark p-2">@Model.Title</strong>
                    
                     <div>
                         <button id="Edit-btn" type="button" class="btn btn-primary btn-sm p-2">Edit</button>                    

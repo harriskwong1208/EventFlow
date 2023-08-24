@@ -7,23 +7,29 @@
     <main role="main" class="container">
 
         <div class="my-3 p-3 bg-white rounded box-shadow">
-            <h6 class="border-bottom border-gray pb-2 mb-0">Upcoming events/appointments/assignments</h6>
+            <div class="d-flex justify-content-between">
+                <h6 class="border-bottom border-gray pb-2 mb-0">To-Do List</h6>
+                <button id="Add-btn" type="button" class="btn btn-info btn-xs ">Add new item</button>
+
+            </div>
             @foreach (var item in Model)
             {
 
-                <div class="d-flex">
-                    <div class="mr-auto p-2">
-                        <strong class="d-block text-gray-dark">@item.Title</strong>
+                <div class="d-flex justify-content-between">
+                    <div class="mr-auto p-2 mt-1" >
+                        <strong class="d-block text-gray-dark">
+                        <a asp-controller="ToDo" asp-action="Detail" asp-route-id="@item.Id">    
+                            @item.Title
+                        </a>    
+                        </strong>
                     </div>
-                    <div class=" p-2">
-                        <button type="button" class="btn btn-primary">Primary</button>
-                    </div>
+
                     <div class="p-2">
-                        <button type="button" class="btn btn-danger">Danger</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
                     </div>
                 </div>
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    Type: @item.Type
                 </p>
 
             }
