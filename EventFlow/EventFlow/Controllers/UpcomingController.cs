@@ -69,7 +69,6 @@ namespace EventFlow.Controllers
                     Priority = upcomingRequest.Priority,
                     Type = upcomingRequest.Type,
                     Description = upcomingRequest.Description,
-                    UserId = 1
                 };
                 _context.Upcomings.Add(upcomingModel);
                 await _context.SaveChangesAsync();

@@ -13,8 +13,8 @@ namespace EventFlow.Models
         public string Type { get; set; }
         public string Description { get; set; }
         [ForeignKey("User")]
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int? UserId { get; set; }
+        public User? User { get; set; }
 
     }
 }

@@ -11,7 +11,7 @@ namespace EventFlow.Models
         public string Completion { get; set; }
         public DateTime Date { get; set; }
         [ForeignKey("User")]
-        public int UserId { get; set; }
-        public User User { get; set; }
+        public int? UserId { get; set; }
+        public User? User { get; set; }
     }
 }
