@@ -41,7 +41,7 @@ namespace EventFlow.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -71,7 +71,7 @@ namespace EventFlow.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -108,7 +108,7 @@ namespace EventFlow.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -147,7 +147,9 @@ namespace EventFlow.Migrations
                 {
                     b.HasOne("EventFlow.Models.User", "User")
                         .WithMany("Histories")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -156,7 +158,9 @@ namespace EventFlow.Migrations
                 {
                     b.HasOne("EventFlow.Models.User", "User")
                         .WithMany("ToDos")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -165,7 +169,9 @@ namespace EventFlow.Migrations
                 {
                     b.HasOne("EventFlow.Models.User", "User")
                         .WithMany("Upcomings")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
