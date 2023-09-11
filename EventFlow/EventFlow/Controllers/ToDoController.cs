@@ -46,6 +46,62 @@ namespace EventFlow.Controllers
             }
             return View(todo);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(ToDoRequest todoRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                var todoModel = new ToDo
+                {
+                    Title = todoRequest.Title,
+                    Type = todoRequest.Type,
+                    Description = todoRequest.Description,
+                    UserId = 1
+                };
+                _context.ToDos.Add(todoModel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return View(todoRequest);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+
+            var todo = await _context.ToDos.FindAsync(id);
+
+            if (todo == null)
+            {
+                return View("Error");
+            }
+            return View(todo);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteItem(int id)
+        {
+
+            var todo = await _context.ToDos.FindAsync(id);
+
+            if (todo == null)
+            {
+                return View("Error");
+            }
+
+            _context.Remove(todo);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+
+
+        }
+
     }
 }
 

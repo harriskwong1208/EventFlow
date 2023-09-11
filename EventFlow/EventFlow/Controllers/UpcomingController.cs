@@ -120,6 +120,39 @@ namespace EventFlow.Controllers
             
         
         }
+        public async Task<IActionResult> Edit(int id)
+        {
+           var upcoming = await _context.Upcomings.FindAsync(id);
+            
+            if(upcoming == null)
+            {
+                return View("Error");
+            }
+            return View(upcoming);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(UpcomingRequest upcomingRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                var upcomingModel = new Upcoming
+                {
+                    Id = upcomingRequest.Id,
+                    Title = upcomingRequest.Title,
+                    Date = upcomingRequest.Date,
+                    Priority = upcomingRequest.Priority,
+                    Type = upcomingRequest.Type,
+                    Description = upcomingRequest.Description,
+                    UserId = 1
+                };
+                _context.Upcomings.Update(upcomingModel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return View(upcomingRequest);
+        }
 
     }
 }
