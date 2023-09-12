@@ -102,6 +102,39 @@ namespace EventFlow.Controllers
 
         }
 
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var todo = await _context.ToDos.FindAsync(id);
+
+            if (todo == null)
+            {
+                return View("Error");
+            }
+            return View(todo);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(ToDoRequest todoRequest)
+        {
+            if (ModelState.IsValid)
+            {
+                var todoModel = new ToDo
+                {
+                    Id = todoRequest.Id,
+                    Title = todoRequest.Title,                
+                    Type = todoRequest.Type,
+                    Description = todoRequest.Description,
+                    UserId = 1
+                };
+                _context.ToDos.Update(todoModel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+
+            return View(todoRequest);
+        }
+
     }
 }
 
