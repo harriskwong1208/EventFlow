@@ -1,9 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-
-namespace EventFlow.Models.DTO
+﻿namespace EventFlow.Models.DTO
 {
-    public class HistoryDTO
+    public class HistoryRequest
     {
         public int Id { get; set; }
         public string Title { get; set; }

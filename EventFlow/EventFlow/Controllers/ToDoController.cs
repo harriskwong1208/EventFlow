@@ -88,17 +88,39 @@ namespace EventFlow.Controllers
         public async Task<IActionResult> DeleteItem(int id)
         {
 
-            var todo = await _context.ToDos.FindAsync(id);
 
-            if (todo == null)
+
+            if (ModelState.IsValid)
             {
-                return View("Error");
+
+                var todo = await _context.ToDos.FindAsync(id);
+
+                if (todo == null)
+                {
+                    return View("Error");
+                }
+
+                _context.Remove(todo);
+                await _context.SaveChangesAsync();
+
+
+
+
+                var historyModel = new History
+                {
+                    Title = todo.Title,
+                    Date = DateTime.Now,
+                    UserId = 1
+                };
+                _context.Histories.Add(historyModel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
 
-            _context.Remove(todo);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
 
+
+
+            return View();
 
         }
 

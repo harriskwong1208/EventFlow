@@ -39,7 +39,7 @@
                 <strong id="Title" class="d-block text-gray-dark p-2">@Model.Title</strong>
 
                 <div>
-                    <form method="post" asp-action="Delete">
+                    <form method="post" asp-action="Delete" asp-route-id=@Model.Id>
                             <button id="Delete-btn" type="submit" class="btn btn-danger btn-sm  p-2">Delete</button>
                         
                     </form>

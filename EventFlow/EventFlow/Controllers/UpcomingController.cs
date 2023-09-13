@@ -51,7 +51,7 @@ namespace EventFlow.Controllers
         
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             return View();
         }
@@ -107,19 +107,44 @@ namespace EventFlow.Controllers
         public async Task<IActionResult> DeleteItem(int id)
         {
             
-            var upcoming = await _context.Upcomings.FindAsync(id);
 
-            if(upcoming == null)
+
+            if (ModelState.IsValid)
             {
-                return View("Error");
+
+                var upcoming = await _context.Upcomings.FindAsync(id);
+
+                if (upcoming == null)
+                {
+                    return View("Error");
+                }
+
+                _context.Remove(upcoming);
+                await _context.SaveChangesAsync();
+
+
+
+
+                var historyModel = new History
+                {
+                    Title = upcoming.Title,
+                    Date = upcoming.Date,
+                    UserId = 1
+                };
+                _context.Histories.Add(historyModel);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
 
-            _context.Remove(upcoming);
-            await _context.SaveChangesAsync();
-            return RedirectToAction("Index");
-            
+
+
+
+            return View();
         
         }
+
+
+
         public async Task<IActionResult> Edit(int id)
         {
            var upcoming = await _context.Upcomings.FindAsync(id);
