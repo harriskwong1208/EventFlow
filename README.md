@@ -9,3 +9,4 @@
 
 <p>EventFlow is a web application developed using C#, ASP.NET Core, HTML/CSS, and Bootstrap. This application connects to a database by effectively utilizing Entity Framework Core and Microsoft SQL Server for data management. EventFlow also utilizes Identity Framework for user authentication. By implementing the MVC (Model-View-Controller) design pattern, EventFlow coordinates smooth interactions between the frontend and backend components. </p>
 
+![](static/home.png)
